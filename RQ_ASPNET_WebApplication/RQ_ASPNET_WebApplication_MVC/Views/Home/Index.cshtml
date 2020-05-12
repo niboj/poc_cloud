@@ -1,0 +1,61 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1> Preuve de concept </h1>
+    <p class="lead">Application .NET MVC</p>
+
+</div>
+
+<h3>Identity</h3>
+<table class="table">
+    <tbody>
+        <tr>
+            <th scope="row"  class="col-sm-3">Username</th>
+            <td>@User.Identity.Name</td>
+        </tr>
+        <tr>
+            <th scope="row">Authentication Type</th>
+            <td>@User.Identity.AuthenticationType</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h3>Environment</h3>
+<table class="table">
+    <tbody>
+
+        <tr>
+            <th scope="row" class="col-sm-3">Machine Name</th>
+            <td>
+                @System.Environment.MachineName
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">OS Version</th>
+            <td>
+                @System.Environment.OSVersion
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">Processor Count</th>
+            <td>
+                @System.Environment.ProcessorCount
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">Username</th>
+            <td>
+                @System.Environment.UserName
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">Domain</th>
+            <td>
+                @System.Environment.UserDomainName
+            </td>
+        </tr>
+    </tbody>
+</table>
