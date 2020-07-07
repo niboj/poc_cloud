@@ -22,9 +22,10 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Accueil", "Index", "Home")</li>
-                    <!-- 
+                    <li>@Html.ActionLink("Journaux", "Index", "EventLog")</li>
+                    <!--
                     <li>@Html.ActionLink("À propos de", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li> 
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                     -->
                 </ul>
                 <p class="nav navbar-text navbar-right">Bonjour, @User.Identity.Name!</p>

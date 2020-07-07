@@ -3,11 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Diagnostics;
 
 namespace RQ_ASPNET_WebApplication_MVC.Controllers
 {
     public class HomeController : Controller
     {
+
+
+       
+
         public ActionResult Index()
         {
             return View();
@@ -26,5 +31,9 @@ namespace RQ_ASPNET_WebApplication_MVC.Controllers
 
             return View();
         }
+
+       
+
+       
     }
 }
