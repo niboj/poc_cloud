@@ -1,9 +1,15 @@
-<powershell>
-Set-ExecutionPolicy Unrestricted -Force
-New-Item -ItemType directory -Path 'C:\temp'
- 
-# Install IIS and Web Management Tools.
-Import-Module ServerManager
-install-windowsfeature web-server, web-webserver -IncludeAllSubFeature
-install-windowsfeature web-mgmt-tools
+<powershell> 
+Start-Transcript; 
+
+# Install IIS
+Import-Module ServerManager; 
+Enable-WindowsOptionalFeature -Online -NoRestart -FeatureName 'IIS-WebServerRole', 'IIS-WebServer', 'IIS-ManagementConsole';
+
+# Configure Bindings to :443
+New-WebBinding -Name "Default Web Site" -IP "*" -Port 443 -Protocol https -SslFlags 0;
+$newCert = New-SelfSignedCertificate -DnsName localhost -CertStoreLocation cert:\LocalMachine\My; 
+$SslBinding = Get-WebBinding -Name "Default Web Site" -Protocol "https";
+$SslBinding.AddSslCertificate($newCert.GetCertHashString(), "my"); 
+Get-WebBinding -Port 80 -Name "Default Web Site" | Remove-WebBinding;
+
 </powershell>
