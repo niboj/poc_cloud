@@ -1,9 +1,9 @@
 # ASP.NET
 - task: CopyFiles@2
   inputs:
-    SourceFolder: '/Scripts/DisableFirewall.ps1'
+    SourceFolder: './Scripts/DisableFirewall.ps1'
     Contents: '**'
-    TargetFolder: '/'
+    TargetFolder: "$(build.artifactStagingDirectory)"
     OverWrite: true
 # Build and test ASP.NET projects.
 # Add steps that publish symbols, save build artifacts, deploy, and more:
