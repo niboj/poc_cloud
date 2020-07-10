@@ -1,5 +1,5 @@
 param(
-[string]$Principle = 'Builtin\Remote Desktop Users',
+[string]$Principle = ' ers',
 [string]$LogName = 'Application'
 )
 
