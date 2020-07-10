@@ -29,17 +29,19 @@ namespace RQ_ASPNET_WebApplication_MVC.Controllers
             EventLog log = new EventLog(logName);
             log.Source = sourceName;
 
-                            
-            List<RQ_ASPNET_WebApplication_MVC.Models.EventLogEntryModel> model = new List<RQ_ASPNET_WebApplication_MVC.Models.EventLogEntryModel>();
-            for(int i = log.Entries.Count-1; i­­ > log.Entries.Count -100; i--)
+            if (log.Entries.Count != 0)
             {
-               
+                List<RQ_ASPNET_WebApplication_MVC.Models.EventLogEntryModel> model = new List<RQ_ASPNET_WebApplication_MVC.Models.EventLogEntryModel>();
+                for (int i = log.Entries.Count - 1; i­­ > log.Entries.Count - 100; i--)
+                {
+
                     EventLogEntryModel entry = new EventLogEntryModel(log.Entries[i]);
                     model.Add(entry);
-               
-            }
 
-            return View(model);
+                }
+                return View(model);
+            }
+            return View();
         }
 
         // GET: EventLog/Details/5
